@@ -3,9 +3,10 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 
 function ListEx({ todoList, onItemEdit }) {
-  console.log("tl", todoList.length);
+  console.log("ttt",todoList.length)
   return (
     <div>
+      {todoList.length==0 && <h3 className='p-3'>No record found.</h3>}
       <ListGroup as="ol" numbered >
       {todoList.map((item, i) => {
         return (
