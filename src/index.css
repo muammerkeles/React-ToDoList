@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.booboo{
+  background: red;
+  color: green;
+  font-size: 3em;
+}
