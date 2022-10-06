@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import jsondata from '../data/data.json'
+
 function ContainerEx() {
     const [formData, setFormData] = useState({ task: "", date: "", index: -1 });
     const [list, setList] = useState([]);
@@ -38,6 +39,13 @@ function ContainerEx() {
     const onItemEdit = function (index) {
         setFormData({ ...formData, task: list[index].task, date: list[index].date, index: index });
     }
+    const onItemDelete = function (index) {
+        if(window.confirm("Comfirm delete the item!"))
+        {
+            list.splice(index,1);
+            setFormData({ ...formData, task: list[index].task, date: list[index].date, index: index });
+        }
+    }
     return (
         <Container>
             <Row>
@@ -47,7 +55,7 @@ function ContainerEx() {
                             <Container>
                                 <Navbar.Brand href="#home">RJS-ToDoList</Navbar.Brand>
                                 <Nav className="me-auto">
-                                    <Link to="/list" className='nav-link active'>
+                                    <Link to="/" className='nav-link active'>
                                         List
                                     </Link>
                                     <Link to="/add" className='nav-link active'>
@@ -57,7 +65,7 @@ function ContainerEx() {
                             </Container>
                         </Navbar>
                         <Routes>
-                            <Route path="/" element={<ListEx todoList={list} onItemEdit={onItemEdit}></ListEx>}></Route>
+                            <Route path="/" element={<ListEx todoList={list} onItemEdit={onItemEdit} onItemDelete={onItemDelete}></ListEx>}></Route>
                             <Route path="/add" element={<FormEx formData={formData} onformChange={formChange} onUpdateList={updateList} />}></Route>
                             <Route path="/detail" element={<DetailEx />}></Route>
                         </Routes>

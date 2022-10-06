@@ -3,8 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import {Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
-function ListEx({ todoList, onItemEdit }) {
-  console.log("ttt", todoList.length)
+function ListEx({ todoList, onItemEdit,onItemDelete }) {
   return (
     <div>
       {todoList.length == 0 && <h3 className='p-3'>No record found.</h3>}
@@ -17,7 +16,8 @@ function ListEx({ todoList, onItemEdit }) {
                 <div className="fw-bold"><Link to={`/detail/${i}`}>{item.task}</Link></div>
                 {item.date}
               </div>
-              <Badge bg="primary" pill >
+              <Badge bg="muted" pill >
+                <Button className='mx-1' onClick={() => onItemDelete(i)}>Delete</Button> 
                 <Button onClick={() => onItemEdit(i)}>Edit</Button>
               </Badge>
             </ListGroup.Item>
