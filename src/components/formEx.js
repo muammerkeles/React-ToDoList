@@ -12,7 +12,7 @@ function FormEx({formData,onformChange,onUpdateList}) {
             if(d==1){
                 setTimeout(()=>{
                     setWelcome("Saved successfully.");
-                    setTimeout(()=>navigate('/list', {replace: true}),1000);
+                    setTimeout(()=>navigate('/', {replace: true}),1000);
                 },1000);
             }else{
                 setWelcome("Failed");

@@ -4,14 +4,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import FormEx from './formEx';
 import ListEx from './listEx';
+import DetailEx from './detailEx';
 import {BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import axios from "axios";
 import { useEffect, useState } from 'react';
-
+import jsondata from '../data/data.json'
 function ContainerEx() {
     const [formData, setFormData] = useState({ task: "", date: "", index: -1 });
     const [list, setList] = useState([]);
 
+    useEffect(() => {
+        setList(jsondata)    
+    }, [])
     const updateList = function (callback) {
         if (formData.task.length < 3) {
             alert("Min 3 charachter..");
@@ -53,8 +57,9 @@ function ContainerEx() {
                             </Container>
                         </Navbar>
                         <Routes>
-                            <Route path="/list" element={<ListEx todoList={list} onItemEdit={onItemEdit}></ListEx>}></Route>
+                            <Route path="/" element={<ListEx todoList={list} onItemEdit={onItemEdit}></ListEx>}></Route>
                             <Route path="/add" element={<FormEx formData={formData} onformChange={formChange} onUpdateList={updateList} />}></Route>
+                            <Route path="/detail" element={<DetailEx />}></Route>
                         </Routes>
                     </div>
                 </Router>
