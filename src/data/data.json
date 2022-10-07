@@ -1,9 +1,9 @@
 [
-    {"task":"Task 1 ","date":""},
-    {"task":"Task 2 ","date":""},
-    {"task":"Task 3 ","date":""},
-    {"task":"Task 4 ","date":""},
-    {"task":"Task 5 ","date":""},
-    {"task":"Task 6 ","date":""},
-    {"task":"Task 7 ","date":""}
+    {"task":"Daily Meeting (Zoom) ","date":"2022-10-15"},
+    {"task":"Study-Session (Teams) ","date":"2022-11-25"},
+    {"task":"General Development","date":"2022-12-25"},
+    {"task":"Goy Goy","date":"2022-12-27"},
+    {"task":"ReactJS Training","date":"2022-11-28"},
+    {"task":"Enjoy the moment","date":"2022-11-29"},
+    {"task":"Update tools & machines","date":"2022-11-30"}
 ]

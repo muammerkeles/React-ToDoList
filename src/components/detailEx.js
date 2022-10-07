@@ -2,29 +2,27 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
 import axios from "axios";
-
-function DetailEx(index) {
+import jsondata from '../data/data.json'
+import { Link, useParams } from 'react-router-dom';
+function DetailEx() {
+    const {id}=useParams();
     const [detail,setDetail]=useState({});
-
     useEffect(() => {
-        axios("./data/data.json").then((res) => {
-            console.log("dd",res);
-            //setDetail=res.data;
-        })
-
-        return () => {
-
-        }
+      if(jsondata[id]==undefined){
+          alert("Not found");
+      }else{
+          setDetail(jsondata[id]);
+      }
     }, [])
-
+    
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem' }} className="mt-5">
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Date: {detail.date}</Card.Title>
                 <Card.Text>
-                    Some quick example text
+                {detail.task}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Link to={`/`} className='btn btn-primary'>Return back</Link>
             </Card.Body>
         </Card>
     )

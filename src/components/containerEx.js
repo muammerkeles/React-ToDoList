@@ -6,7 +6,6 @@ import FormEx from './formEx';
 import ListEx from './listEx';
 import DetailEx from './detailEx';
 import {BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useState } from 'react';
 import jsondata from '../data/data.json'
 
@@ -67,7 +66,7 @@ function ContainerEx() {
                         <Routes>
                             <Route path="/" element={<ListEx todoList={list} onItemEdit={onItemEdit} onItemDelete={onItemDelete}></ListEx>}></Route>
                             <Route path="/add" element={<FormEx formData={formData} onformChange={formChange} onUpdateList={updateList} />}></Route>
-                            <Route path="/detail" element={<DetailEx />}></Route>
+                            <Route path="/detail/:id" element={<DetailEx />}></Route>
                         </Routes>
                     </div>
                 </Router>
